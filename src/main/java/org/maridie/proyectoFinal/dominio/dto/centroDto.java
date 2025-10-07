@@ -1,6 +1,5 @@
 package org.maridie.proyectoFinal.dominio.dto;
 
-
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
