@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class tipoDeSangreDto {
     @PositiveOrZero
-    Integer id_tipo_sangre;
+    private Integer id_tipo_sangre;
     @NotBlank(message = "El grupo sanguineo es obligatorio")
-    String grupo_sanguineo;
+    private String grupo_sanguineo;
     @NotBlank(message = "El factor rh es obligatorio")
-    String factor_rh;
+    private String factor_rh;
 }
