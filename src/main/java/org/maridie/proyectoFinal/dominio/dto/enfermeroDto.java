@@ -15,34 +15,27 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class citaDto {
+public class enfermeroDto {
+
     @PositiveOrZero
-    Integer id_cita;
-    @NotBlank (message = "La fecha de infracción es obligatoria")
+    Integer id_enfermero;
 
-   @NotBlank(message = "La fecha es obligartoria")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @NotBlank(message = "Los nombre  es obligatorio")
+    String nombres;
 
-    private LocalDate fecha_cita;
+    @NotBlank(message = "Los apellidos es obligatorio")
+    String apellidos;
 
-    @NotNull(message = "La hora es obligatoria")
-    LocalTime hora;
+    @NotBlank(message = "El colegiado es obligatorio")
+    String colegiado;
 
-    @NotBlank(message = "El estado es obligatorio")
-    String estado;
+    @NotBlank(message = "El telefono es obligatorio")
+    String telefono;
 
-    @NotNull(message = "El donador es obligatorio")
-    Integer id_donador;
+    @NotBlank(message = "El email es obligatorio")
+    String email;
 
     @NotNull(message = "El centro es obligatorio")
     Integer id_centro;
 
-    @NotNull(message = "El jornada es obligatorio")
-    Integer id_jornada;
-
-
-
-
 }
-
-

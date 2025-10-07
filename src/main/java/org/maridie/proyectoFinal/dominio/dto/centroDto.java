@@ -9,11 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class tipoDeSangreDto {
+
+public class centroDto {
     @PositiveOrZero
-    private Integer id_tipo_sangre;
-    @NotBlank(message = "El grupo sanguineo es obligatorio")
-    private String grupo_sanguineo;
-    @NotBlank(message = "El factor rh es obligatorio")
-    private String factor_rh;
+     Integer id_centro;
+    @NotBlank(message = "El Nombre es Obligatorio")
+    String nombre;
+    @NotBlank(message = "La direccion es Obligatorio")
+    String direccion;
+    @NotBlank(message = "El telefono es Obligatoria")
+    String telefono;
+
 }
