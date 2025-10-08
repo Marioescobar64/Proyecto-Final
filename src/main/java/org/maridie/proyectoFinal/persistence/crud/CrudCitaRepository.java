@@ -1,4 +1,7 @@
 package org.maridie.proyectoFinal.persistence.crud;
 
-public interface CrudCitaRepository {
+import org.maridie.proyectoFinal.persistence.entity.citaEntitty;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CrudCitaRepository extends CrudRepository<citaEntitty,Integer> {
 }
