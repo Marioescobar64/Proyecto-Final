@@ -20,6 +20,6 @@ public interface citaMapper {
 
     List<citaDto> toDto(Iterable<citaEntitty> entities);
 
-    citaEntitty toEntity(citaEntitty dto);
+    citaEntitty toEntity(citaDto dto);
 
 }

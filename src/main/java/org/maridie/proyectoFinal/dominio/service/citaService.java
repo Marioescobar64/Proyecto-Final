@@ -21,9 +21,9 @@ public class citaService {
     public citaDto guardar(citaDto cita) { return this.citaRepository.guardar(cita);}
     public void eliminar(Integer id) {this.citaRepository.eliminar(id);}
 
-    public List<donadorDto> obtenerDonador() { return donadorRepository.obtenerTodo(); }
-    public List<centroDto> obtenerCentro() { return centroRepository.obtenerTodo(); }
-    public List<jornadaDto> obtenerJornadas() { return jornadaRepository.obtenerTodo(); }
 
     public List<citaDto> buscarPorIdDonador(Integer id_donador) {return citaRepository.buscarPorIdDonador(id_donador);}
+    public List<citaDto> buscarPorIdCentro(Integer id_centro) {return citaRepository.buscarPorIdCentro(id_centro);}
+    public List<citaDto> buscarPorIdJornada(Integer id_jornada) {return citaRepository.buscarPorIdJornada(id_jornada);}
+
 }
