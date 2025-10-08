@@ -6,9 +6,7 @@ import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.List;
 import lombok.Data;
-import org.maridie.proyectoFinal.dominio.dto.centroDto;
-import org.maridie.proyectoFinal.dominio.dto.donadorDto;
-import org.maridie.proyectoFinal.dominio.dto.jornadaDto;
+
 
 import java.time.LocalDate;
 
@@ -33,15 +31,15 @@ public class citaEntitty {
 
     @ManyToOne
     @JoinColumn(name = "id_donador")
-    private donadorDto id_donador;
+    private donadorEntity  donador;
 
     @ManyToOne
     @JoinColumn(name = "id_centro", nullable = false)
-    private centroDto id_centro;
+    private CentroEntity  centro;
 
     @ManyToOne
     @JoinColumn(name = "id_jornada", nullable = false)
-    private jornadaDto id_jornada;
+    private jornadaEntity  jornada;
 
 
 }
