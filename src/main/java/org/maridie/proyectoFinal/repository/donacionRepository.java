@@ -9,4 +9,6 @@ public interface donacionRepository {
     donacionDto buscarPorId(Integer id);
     donacionDto guardar(donacionDto donacion);
     void eliminar(Integer id);
+
+    List<donacionDto> buscarPorIdCita(Integer idCita);
 }
