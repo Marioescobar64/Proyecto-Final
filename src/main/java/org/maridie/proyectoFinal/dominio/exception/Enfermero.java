@@ -1,12 +1,12 @@
 package org.maridie.proyectoFinal.dominio.exception;
 
 public class Enfermero extends RuntimeException {
-    //Pago no realizado
+    //Enfermero no realizado
     public Enfermero(Long codigo) {
-        super("El pago de la multa con codigo " + codigo + " no se ha realizado");
+        super("El Enfermero con codigo " + codigo + " no se ha realizado");
     }
-    //Pago ya realizado
+    //Enfermero ya realizado
     public Enfermero(String mensaje) {
-        super("El pago de la multa se ha realizado con exito" + mensaje);
+        super("El Enfermero  se ha realizado con exito" + mensaje);
     }
 }

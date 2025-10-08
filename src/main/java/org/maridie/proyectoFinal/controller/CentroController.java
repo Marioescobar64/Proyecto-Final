@@ -24,7 +24,7 @@ public class CentroController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<centroDto> obtenerDepartamentoPorId(@PathVariable Integer id){
+    public ResponseEntity<centroDto> obtenerCentroPorId(@PathVariable Integer id){
         centroDto centro = centroService.buscarPorId(id);
         return centro != null ?
                 new ResponseEntity<>(centro, HttpStatus.OK) :
