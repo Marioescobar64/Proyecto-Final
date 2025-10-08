@@ -1,7 +1,7 @@
 package org.maridie.proyectoFinal.persistence.crud;
 
-import org.maridie.proyectoFinal.persistence.entity.tipoDeSangreEntity;
+import org.maridie.proyectoFinal.persistence.entity.TipoDeSangreEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface CrudTipoDeSangreRepository extends CrudRepository<tipoDeSangreEntity, Integer> {
+public interface CrudTipoDeSangreRepository extends CrudRepository<TipoDeSangreEntity, Integer> {
 }

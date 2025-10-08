@@ -46,7 +46,7 @@ public class donadorEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_tipo_sangre", referencedColumnName = "id_tipo_sangre")
-    private tipoDeSangreEntity tipoSangre;
+    private TipoDeSangreEntity tipoSangre;
 
     @Column(name = "fecha_ultima_donacion")
     private LocalDate fecha_ultima_donacion;

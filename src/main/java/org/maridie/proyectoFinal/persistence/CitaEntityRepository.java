@@ -1,14 +1,17 @@
 package org.maridie.proyectoFinal.persistence;
 
 import org.maridie.proyectoFinal.dominio.dto.citaDto;
-import org.maridie.proyectoFinal.dominio.repository.CitaRepository;
+import org.maridie.proyectoFinal.dominio.dto.ModcitaDto;
+import org.maridie.proyectoFinal.dominio.exception.CitaNoExiste;
+import org.maridie.proyectoFinal.dominio.exception.cita;
 import org.maridie.proyectoFinal.persistence.crud.CrudCitaRepository;
+import org.maridie.proyectoFinal.dominio.repository.CitaRepository;
+import  org.maridie.proyectoFinal.persistence.mapper.citaMapper;
 import org.maridie.proyectoFinal.persistence.entity.citaEntitty;
-import org.maridie.proyectoFinal.persistence.mapper.citaMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Repository
 public class CitaEntityRepository implements CitaRepository {
@@ -26,36 +29,48 @@ public class CitaEntityRepository implements CitaRepository {
     }
 
     @Override
-    public citaDto buscarPorId(Integer id) {
-        Optional<citaEntitty> cita = this.crudCitaRepository.findById(id);
-        return cita.map(citaMapper::toDto).orElse(null);
-    }
-    @Override
-    public List<citaDto> buscarPorIdDonador(Integer idDonador) {
-        List<citaEntitty> citas = crudCitaRepository.findByDonador_IdDonador(idDonador);
-        return citaMapper.toDto(citas);
+    public citaDto buscarPorId(Long id_cita) {
+        return this.citaMapper.toDto(this.crudCitaRepository.findById(id_cita).orElse(null));
     }
 
     @Override
-    public List<citaDto> buscarPorIdCentro(Integer id_centro) {
-        List<citaEntitty> citas = crudCitaRepository.findByCentro_Id_centro(id_centro);
-        return citaMapper.toDto(citas);
-    }
+    public citaDto guardarCita(citaDto citaDto) {
+        if (this.crudCitaRepository.findFirstByestado(citaDto.estado()) != null) {
+            throw new cita(citaDto.estado());
+        }
 
-    @Override
-    public List<citaDto> buscarPorIdJornada(Integer id_jornada) {
-        List<citaEntitty> citas = crudCitaRepository.findByJornada_Id(id_jornada);
-        return citaMapper.toDto(citas);
-    }
-
-    @Override
-    public citaDto guardar(citaDto citaDto) {
+        // Convertimos DTO a Entity
         citaEntitty cita = this.citaMapper.toEntity(citaDto);
+
+        // Guardamos en la base de datos
+        this.crudCitaRepository.save(cita);
+
+        // Retornamos como DTO
+        return this.citaMapper.toDto(cita);
+    }
+
+    @Override
+    public citaDto modificarCita(Long id_cita, ModcitaDto modCita) {
+       citaEntitty cita = this.crudCitaRepository.findById(id_cita).orElse(null);
+
+        if (cita == null) {
+            throw new CitaNoExiste(id_cita);
+        }
+
+        // Actualizamos entidad con datos del DTO
+        this.citaMapper.modificarEntityFromDto(modCita, cita);
+
         return this.citaMapper.toDto(this.crudCitaRepository.save(cita));
     }
 
     @Override
-    public void eliminar(Integer id) {
-        this.crudCitaRepository.deleteById(id);
+    public void eliminarCita(Long id_cita) {
+        citaEntitty cita = this.crudCitaRepository.findById(id_cita).orElse(null);
+
+        if (cita == null) {
+            throw new CitaNoExiste(id_cita);
+        }
+
+        this.crudCitaRepository.delete(cita);
     }
 }

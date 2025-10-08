@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class centroDto {
+public class CentroDto {
     @PositiveOrZero
      Integer id_centro;
     @NotBlank(message = "El Nombre es Obligatorio")

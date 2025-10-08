@@ -1,14 +1,14 @@
 package org.maridie.proyectoFinal.dominio.repository;
 
-import org.maridie.proyectoFinal.dominio.dto.donadorDto;
+import org.maridie.proyectoFinal.dominio.dto.DonadorDto;
 
 
 import java.util.List;
 
 public interface DonadorRepository {
-    List<donadorDto> obtenerTodo();
-    donadorDto buscarPorId(Integer id);
-    donadorDto guardar(donadorDto donador);
+    List<DonadorDto> obtenerTodo();
+    DonadorDto buscarPorId(Integer id);
+    DonadorDto guardar(DonadorDto donador);
     void eliminar(Integer id);
 
 }

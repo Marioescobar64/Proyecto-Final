@@ -2,9 +2,8 @@ package org.maridie.proyectoFinal.persistence.entity;
 
 import jakarta.persistence.*;
 
-import java.math.BigDecimal;
 import java.time.LocalTime;
-import java.util.List;
+
 import lombok.Data;
 
 
@@ -17,11 +16,10 @@ public class citaEntitty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cita")
-    private Integer id_cita;
+    private Long id_cita;
 
     @Column(name = "fecha_cita", nullable = false)
     private LocalDate fecha_cita;
-
 
     @Column(name = "hora", nullable = false)
     private LocalTime hora;
@@ -30,16 +28,16 @@ public class citaEntitty {
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "id_donador")
-    private donadorEntity  donador;
+    @JoinColumn(name = "id_donador", nullable = false)
+    private donadorEntity donador;
 
     @ManyToOne
     @JoinColumn(name = "id_centro", nullable = false)
-    private CentroEntity  centro;
+    private CentroEntity centro;
 
     @ManyToOne
-    @JoinColumn(name = "id_jornada", referencedColumnName = "id_jornada")
-    private jornadaEntity  jornada;
+    @JoinColumn(name = "id_jornada", nullable = false)
+    private jornadaEntity jornada;
 
 
 }

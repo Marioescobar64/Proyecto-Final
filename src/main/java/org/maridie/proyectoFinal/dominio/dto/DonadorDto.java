@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class donadorDto {
+public class DonadorDto {
     @PositiveOrZero
     private Integer id_donador;
 

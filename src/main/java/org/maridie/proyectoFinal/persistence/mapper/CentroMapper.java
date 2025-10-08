@@ -1,6 +1,6 @@
 package org.maridie.proyectoFinal.persistence.mapper;
 
-import org.maridie.proyectoFinal.dominio.dto.centroDto;
+import org.maridie.proyectoFinal.dominio.dto.CentroDto;
 import org.maridie.proyectoFinal.persistence.entity.CentroEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -15,8 +15,8 @@ public interface CentroMapper {
     @Mapping(source = "nombre", target = "nombre")
     @Mapping(source = "direccion", target = "direccion")
     @Mapping(source = "telefono", target = "telefono")
-    centroDto toDto(CentroEntity entity);
-    List<centroDto> toDto(Iterable<CentroEntity> entities);
+    CentroDto toDto(CentroEntity entity);
+    List<CentroDto> toDto(Iterable<CentroEntity> entities);
     @InheritInverseConfiguration
-    CentroEntity toEntity(centroDto entity);
+    CentroEntity toEntity(CentroDto entity);
 }

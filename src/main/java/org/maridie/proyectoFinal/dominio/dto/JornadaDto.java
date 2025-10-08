@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class jornadaDto {
+public class JornadaDto {
 
     @PositiveOrZero
     private Integer id;

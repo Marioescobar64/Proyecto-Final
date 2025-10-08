@@ -2,7 +2,7 @@ package org.maridie.proyectoFinal.dominio.service;
 
 import jakarta.transaction.Transactional;
 import lombok.Data;
-import org.maridie.proyectoFinal.dominio.dto.tipoDeSangreDto;
+import org.maridie.proyectoFinal.dominio.dto.TipoDeSangreDto;
 import org.springframework.stereotype.Service;
 import org.maridie.proyectoFinal.repository.tipoDeSangreRepository;
 
@@ -17,15 +17,15 @@ public class tipoDeSangreService {
         this.tipoDeSangreRepository = tipoDeSangreRepository;
     }
 
-    public List<tipoDeSangreDto> obtenerTodo() {
+    public List<TipoDeSangreDto> obtenerTodo() {
         return this.tipoDeSangreRepository.obtenerTodo();
     }
 
-    public tipoDeSangreDto buscarPorId(Integer id) {
+    public TipoDeSangreDto buscarPorId(Integer id) {
         return this.tipoDeSangreRepository.buscarPorId(id);
     }
 
-    public tipoDeSangreDto guardar(tipoDeSangreDto tipoDeSangreDto) {
+    public TipoDeSangreDto guardar(TipoDeSangreDto tipoDeSangreDto) {
         return this.tipoDeSangreRepository.guardar(tipoDeSangreDto);
     }
 

@@ -1,6 +1,6 @@
 package org.maridie.proyectoFinal.persistence;
 
-import org.maridie.proyectoFinal.dominio.dto.centroDto;
+import org.maridie.proyectoFinal.dominio.dto.CentroDto;
 import org.maridie.proyectoFinal.dominio.repository.CentroRepository;
 import org.maridie.proyectoFinal.persistence.crud.CrudCentroRepository;
 import org.maridie.proyectoFinal.persistence.entity.CentroEntity;
@@ -20,18 +20,18 @@ public class CentroEntityRepository implements CentroRepository {
         this.centroMapper = centroMapper;
     }
     @Override
-    public List<centroDto> obtenerTodo() {
+    public List<CentroDto> obtenerTodo() {
         return this.centroMapper.toDto(this.crudCentroRepository.findAll());
     }
 
     @Override
-    public centroDto buscarPorId(Integer id) {
+    public CentroDto buscarPorId(Integer id) {
         Optional<CentroEntity> centro = this.crudCentroRepository.findById(id);
         return centro.map(centroMapper::toDto).orElse(null);
     }
 
     @Override
-    public centroDto guardar(centroDto centroDto) {
+    public CentroDto guardar(CentroDto centroDto) {
         CentroEntity centro = this.centroMapper.toEntity(centroDto);
         return this.centroMapper.toDto(this.crudCentroRepository.save(centro));
     }

@@ -1,7 +1,7 @@
 package org.maridie.proyectoFinal.dominio.service;
 
 import jakarta.transaction.Transactional;
-import org.maridie.proyectoFinal.dominio.dto.jornadaDto;
+import org.maridie.proyectoFinal.dominio.dto.JornadaDto;
 import org.maridie.proyectoFinal.repository.jornadaRepository;
 
 import java.util.List;
@@ -13,15 +13,15 @@ public class jornadaService {
         this.jornadaRepository = jornadaRepository;
     }
 
-    public List<jornadaDto> obtenerTodo() {
+    public List<JornadaDto> obtenerTodo() {
         return this.jornadaRepository.obtenerTodo();
     }
 
-    public jornadaDto buscarPorId(Integer id) {
+    public JornadaDto buscarPorId(Integer id) {
         return this.jornadaRepository.buscarPorId(id);
     }
 
-    public jornadaDto guardar(jornadaDto jornadaDto) {
+    public JornadaDto guardar(JornadaDto jornadaDto) {
         return this.jornadaRepository.guardar(jornadaDto);
     }
 

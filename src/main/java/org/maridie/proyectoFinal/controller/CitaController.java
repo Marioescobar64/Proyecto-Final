@@ -1,88 +1,88 @@
 package org.maridie.proyectoFinal.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.maridie.proyectoFinal.dominio.dto.citaDto;
+import org.maridie.proyectoFinal.dominio.dto.ModcitaDto;
+import org.maridie.proyectoFinal.dominio.service.CitaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.maridie.proyectoFinal.dominio.service.citaService;
-import org.maridie.proyectoFinal.dominio.dto.citaDto;
 
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/v1/cita")
+@Tag(name = "cita", description = "Operaciones CRUD sobre los cita")
 public class CitaController {
-    private final citaService citaService;
 
-    public CitaController(citaService citaService) {
-        this.citaService = citaService;
-    }
+        private final CitaService citaService;
 
-    @GetMapping
-    public ResponseEntity<List<citaDto>> obtenerTodos(){
-        return new ResponseEntity<>(citaService.obtenerTodo(), HttpStatus.OK);
-    }
+        public CitaController(CitaService citaService) {
+            this.citaService = citaService;
+        }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<citaDto> obtenerMultaPorId(@PathVariable Integer id){
-        citaDto cita = citaService.buscarPorId(id);
-        return cita != null ?
-                new ResponseEntity<>(cita, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+        @GetMapping
+        @Operation(
+                summary = "Obtener todos los eventos",
+                description = "Retorna la lista completa de eventos registrados"
+        )
+        public ResponseEntity<List<citaDto>> obtenerCitas() {
+            return ResponseEntity.ok(this.citaService.obtenerTodo());
+        }
 
-    @PostMapping
-    public ResponseEntity<citaDto> guardarCita(@RequestBody @Valid citaDto citaDto){
-        citaDto nuevaCita = citaService.guardar(citaDto);
-        return new ResponseEntity<>(nuevaCita, HttpStatus.CREATED);
-    }
+        @GetMapping("{id}")
+        @Operation(
+                summary = "Obtener un evento por su identificador",
+                description = "Retorna el evento que coincida con el identificador dado",
+                responses = {
+                        @ApiResponse(responseCode = "200", description = "Evento encontrado"),
+                        @ApiResponse(responseCode = "404", description = "Evento no encontrado", content = @Content)
+                }
+        )
+        public ResponseEntity<citaDto> buscarPorId(
+                @Parameter(description = "Identificador del evento", example = "1")
+                @PathVariable Long id) {
+            return ResponseEntity.ok(this.citaService.buscarPorId(id));
+        }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<citaDto> actualizarMulta(@PathVariable Integer id, @Valid @RequestBody citaDto citaDto){
-        citaDto citaExistente = citaService.buscarPorId(id);
-        if(citaExistente != null){
-            citaDto citaActializada = citaService.guardar(new citaDto(id, citaDto.getFecha_cita(), citaDto.getHora(), citaDto.getEstado(), citaDto.getId_donador(), citaDto.getId_centro(), citaDto.getId_jornada()));
-            return new ResponseEntity<>(citaActializada, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        @PostMapping
+        @Operation(
+                summary = "Registrar un nuevo evento",
+                description = "Crea un nuevo evento en el sistema",
+                responses = {
+                        @ApiResponse(responseCode = "201", description = "Evento creado exitosamente"),
+                        @ApiResponse(responseCode = "400", description = "Datos inválidos", content = @Content)
+                }
+        )
+        public ResponseEntity<citaDto> guardarCita(@RequestBody @Valid citaDto citaDto) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(this.citaService.guardarCita(citaDto));
+        }
+
+        @PutMapping("{id}")
+        @Operation(
+                summary = "Modificar un evento existente",
+                description = "Permite actualizar los datos de un evento existente"
+        )
+        public ResponseEntity<citaDto> modificarCita(
+                @PathVariable Long id,
+                @RequestBody @Valid ModcitaDto modCitaDto) {
+            return ResponseEntity.ok(this.citaService.modificarCita(id, modCitaDto));
+        }
+
+        @DeleteMapping("{id}")
+        @Operation(
+                summary = "Eliminar un evento",
+                description = "Elimina un evento por su identificador"
+        )
+        public ResponseEntity<Void> eliminarCita(@PathVariable Long id) {
+            this.citaService.eliminarCita(id);
+            return ResponseEntity.ok().build();
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<citaDto> eliminarCita(@PathVariable Integer id){
-        citaDto cita = citaService.buscarPorId(id);
-        if(cita != null){
-            citaService.eliminar(id);
-            return new ResponseEntity<>(cita, HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-    @GetMapping("/por-id_centro/{id_centro}")
-    public ResponseEntity<List<citaDto>> buscarPorIdDonador(@PathVariable Integer id_donador) {
-        List<citaDto> citas = citaService.buscarPorIdDonador(id_donador);
-        if (citas.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(citas, HttpStatus.OK);
-    }
-
-    @GetMapping("/por-id_centro/{id_centro}")
-    public ResponseEntity<List<citaDto>> obtenerCitasPorIdCentro(@PathVariable Integer id_centro) {
-        List<citaDto> citas = citaService.buscarPorIdCentro(id_centro);
-        if (citas.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(citas, HttpStatus.OK);
-    }
-
-    @GetMapping("/por-id_jornada/{id_jornada}")
-    public ResponseEntity<List<citaDto>> obtenerCitasPorIdJornada(@PathVariable Integer id_jornada) {
-        List<citaDto> citas = citaService.buscarPorIdJornada(id_jornada);
-        if (citas.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(citas, HttpStatus.OK);
-    }
-}

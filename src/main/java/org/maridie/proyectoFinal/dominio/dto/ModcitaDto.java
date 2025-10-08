@@ -1,14 +1,12 @@
 package org.maridie.proyectoFinal.dominio.dto;
 
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.FutureOrPresent;
 import jakarta.validation.constraints.NotNull;
-
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public record citaDto(
-        Long id_cita,
+public record ModcitaDto(
 
         @NotNull(message = "La fecha es obligatoria")
         @FutureOrPresent(message = "La fecha de la cita debe ser hoy o futura")
@@ -21,17 +19,15 @@ public record citaDto(
         String estado,
 
 
-        @NotNull(message = "El id del donador es obligatorio")
+        @NotNull(message = "El id del recurso es obligatorio")
         Long id_donador,
 
-        @NotNull(message = "El id del centro es obligatorio")
+        @NotNull(message = "El id del recurso es obligatorio")
         Long id_centro,
 
-        @NotNull(message = "El id del jornada es obligatorio")
+        @NotNull(message = "El id del recurso es obligatorio")
         Long id_jornada
 
 
-
-) {}
-
-
+) {
+}

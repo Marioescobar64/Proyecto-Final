@@ -1,15 +1,23 @@
 package org.maridie.proyectoFinal.dominio.repository;
 
 import org.maridie.proyectoFinal.dominio.dto.citaDto;
+import org.maridie.proyectoFinal.dominio.dto.ModcitaDto;
 
 import java.util.List;
 
 public interface CitaRepository {
+
     List<citaDto> obtenerTodo();
-    citaDto buscarPorId(Integer id);
-    List<citaDto> buscarPorIdDonador(Integer id_donador);
-    List<citaDto> buscarPorIdCentro(Integer id_centro);
-    List<citaDto> buscarPorIdJornada(Integer id_jornada);
-    citaDto guardar(citaDto cita);
-    void eliminar(Integer id);
+
+
+    citaDto buscarPorId(Long id_cita);
+
+
+    citaDto guardarCita(citaDto citaDto);
+
+
+    citaDto modificarCita(Long id_cita, ModcitaDto modCitaDto);
+
+    // Eliminar un evento por ID
+    void eliminarCita(Long id_cita);
 }

@@ -1,7 +1,7 @@
 package org.maridie.proyectoFinal.persistence.mapper;
 
-import org.maridie.proyectoFinal.dominio.dto.donacionDto;
-import org.maridie.proyectoFinal.persistence.entity.donacionEntity;
+import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
+import org.maridie.proyectoFinal.persistence.entity.DonacionEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -18,10 +18,10 @@ public interface donacionMapper {
     @Mapping(source = "volumen_ml", target = "volumen_ml")
     @Mapping(source = "resultado_serologia", target = "resultado_serologia")
     @Mapping(source = "codigo_unidad", target = "codigo_unidad")
-    donacionDto toDto(donacionEntity entity);
+    DonacionDto toDto(DonacionEntity entity);
 
-    List<donacionDto> toDto(Iterable<donacionEntity> entities);
+    List<DonacionDto> toDto(Iterable<DonacionEntity> entities);
 
     @InheritInverseConfiguration
-    donacionEntity toEntity(donacionDto dto);
+    DonacionEntity toEntity(DonacionDto dto);
 }

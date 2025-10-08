@@ -1,6 +1,6 @@
 package org.maridie.proyectoFinal.dominio.service;
 import lombok.Data;
-import org.maridie.proyectoFinal.dominio.dto.donacionDto;
+import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
 import org.maridie.proyectoFinal.repository.donacionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,15 +16,15 @@ public class donacionService {
         this.donacionRepository = donacionRepository;
     }
 
-    public List<donacionDto> obtenerTodo() {
+    public List<DonacionDto> obtenerTodo() {
         return this.donacionRepository.obtenerTodo();
     }
 
-    public donacionDto buscarPorId(Integer id) {
+    public DonacionDto buscarPorId(Integer id) {
         return this.donacionRepository.buscarPorId(id);
     }
 
-    public donacionDto guardar(donacionDto donacionDto) {
+    public DonacionDto guardar(DonacionDto donacionDto) {
         return this.donacionRepository.guardar(donacionDto);
     }
 
@@ -33,7 +33,7 @@ public class donacionService {
         this.donacionRepository.eliminar(id);
     }
 
-    public List<donacionDto> buscarPorIdCita(Integer idCita) {
+    public List<DonacionDto> buscarPorIdCita(Integer idCita) {
         return donacionRepository.buscarPorIdCita(idCita);
     }
 }

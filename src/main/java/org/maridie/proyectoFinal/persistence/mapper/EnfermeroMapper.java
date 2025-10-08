@@ -1,6 +1,6 @@
 package org.maridie.proyectoFinal.persistence.mapper;
 
-import org.maridie.proyectoFinal.dominio.dto.enfermeroDto;
+import org.maridie.proyectoFinal.dominio.dto.EnfermeroDto;
 import org.maridie.proyectoFinal.persistence.entity.EnfermeroEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -19,10 +19,10 @@ public interface EnfermeroMapper {
     @Mapping(source = "telefono", target = "telefono")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "centro.id", target = "id_centro")
-    enfermeroDto toDto(EnfermeroEntity entity);
+    EnfermeroDto toDto(EnfermeroEntity entity);
 
-    List<enfermeroDto> toDto(Iterable<EnfermeroEntity> entities);
+    List<EnfermeroDto> toDto(Iterable<EnfermeroEntity> entities);
 
     @InheritInverseConfiguration
-    EnfermeroEntity toEntity(enfermeroDto dto);
+    EnfermeroEntity toEntity(EnfermeroDto dto);
 }
