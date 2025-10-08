@@ -1,4 +1,4 @@
-package org.maridie.proyectoFinal.repository;
+package org.maridie.proyectoFinal.dominio.repository;
 
 import org.maridie.proyectoFinal.dominio.dto.TipoDeSangreDto;
 

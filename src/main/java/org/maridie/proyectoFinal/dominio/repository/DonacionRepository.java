@@ -1,10 +1,10 @@
-package org.maridie.proyectoFinal.repository;
+package org.maridie.proyectoFinal.dominio.repository;
 
 import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
 
 import java.util.List;
 
-public interface donacionRepository {
+public interface DonacionRepository {
     List<DonacionDto> obtenerTodo();
     DonacionDto buscarPorId(Integer id);
     DonacionDto guardar(DonacionDto donacion);

@@ -1,7 +1,7 @@
 package org.maridie.proyectoFinal.dominio.service;
 import lombok.Data;
 import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
-import org.maridie.proyectoFinal.repository.donacionRepository;
+import org.maridie.proyectoFinal.dominio.repository.DonacionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,9 +10,9 @@ import java.util.List;
 @Service
 @Data
 public class donacionService {
-    private final donacionRepository donacionRepository;
+    private final DonacionRepository donacionRepository;
 
-    public donacionService(donacionRepository donacionRepository) {
+    public donacionService(DonacionRepository donacionRepository) {
         this.donacionRepository = donacionRepository;
     }
 

@@ -1,15 +1,19 @@
 package org.maridie.proyectoFinal.dominio.service;
 
 import jakarta.transaction.Transactional;
+import lombok.Data;
 import org.maridie.proyectoFinal.dominio.dto.JornadaDto;
-import org.maridie.proyectoFinal.repository.jornadaRepository;
+import org.maridie.proyectoFinal.dominio.repository.JornadaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@Data
 public class jornadaService {
-    private final jornadaRepository jornadaRepository;
+    private final JornadaRepository jornadaRepository;
 
-    public jornadaService(jornadaRepository jornadaRepository) {
+    public jornadaService(JornadaRepository jornadaRepository) {
         this.jornadaRepository = jornadaRepository;
     }
 

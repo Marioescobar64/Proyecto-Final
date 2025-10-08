@@ -18,7 +18,7 @@ public interface EnfermeroMapper {
     @Mapping(source = "colegiado", target = "colegiado")
     @Mapping(source = "telefono", target = "telefono")
     @Mapping(source = "email", target = "email")
-    @Mapping(source = "centro.id", target = "id_centro")
+    @Mapping(source = "centro.id_centro", target = "id_centro")
     EnfermeroDto toDto(EnfermeroEntity entity);
 
     List<EnfermeroDto> toDto(Iterable<EnfermeroEntity> entities);

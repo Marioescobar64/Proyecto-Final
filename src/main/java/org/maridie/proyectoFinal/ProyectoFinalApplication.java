@@ -3,7 +3,7 @@ package org.maridie.proyectoFinal;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.maridie.proyectoFinal")
 public class ProyectoFinalApplication {
 
     public static void main(String[] args) {

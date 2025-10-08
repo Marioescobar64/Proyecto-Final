@@ -4,7 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.Data;
 import org.maridie.proyectoFinal.dominio.dto.TipoDeSangreDto;
 import org.springframework.stereotype.Service;
-import org.maridie.proyectoFinal.repository.tipoDeSangreRepository;
+import org.maridie.proyectoFinal.dominio.repository.tipoDeSangreRepository;
 
 import java.util.List;
 
