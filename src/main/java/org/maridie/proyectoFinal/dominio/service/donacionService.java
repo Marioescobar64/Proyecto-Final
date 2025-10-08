@@ -32,4 +32,8 @@ public class donacionService {
     public void eliminar(Integer id) {
         this.donacionRepository.eliminar(id);
     }
+
+    public List<donacionDto> buscarPorIdCita(Integer idCita) {
+        return donacionRepository.buscarPorIdCita(idCita);
+    }
 }
