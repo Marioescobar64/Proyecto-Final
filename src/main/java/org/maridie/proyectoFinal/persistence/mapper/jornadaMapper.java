@@ -11,7 +11,9 @@ import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface jornadaMapper {
-    @Mapping(source = "id_jornada", target = "id_jornada")
+
+    // De entidad a DTO
+    @Mapping(source = "id", target = "id")
     @Mapping(source = "nombre_jornada", target = "nombre_jornada")
     @Mapping(source = "fecha_inicio", target = "fecha_inicio")
     @Mapping(source = "fecha_fin", target = "fecha_fin")
@@ -21,6 +23,7 @@ public interface jornadaMapper {
 
     List<jornadaDto> toDto(Iterable<jornadaEntity> entities);
 
+    // De DTO a entidad
     @InheritInverseConfiguration
     jornadaEntity toEntity(jornadaDto dto);
 }

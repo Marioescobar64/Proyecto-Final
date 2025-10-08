@@ -31,20 +31,20 @@ public class CitaEntityRepository implements CitaRepository {
         return cita.map(citaMapper::toDto).orElse(null);
     }
     @Override
-    public List<citaDto> buscarPorIdDonador(Integer id_donador) {
-        List<citaEntitty> citas = crudCitaRepository.findByVDonador_id_donador(id_donador);
+    public List<citaDto> buscarPorIdDonador(Integer idDonador) {
+        List<citaEntitty> citas = crudCitaRepository.findByDonador_id_donador(idDonador);
         return citaMapper.toDto(citas);
     }
 
     @Override
     public List<citaDto> buscarPorIdCentro(Integer id_centro) {
-        List<citaEntitty> citas = crudCitaRepository.findByVCentro_id_centro(id_centro);
+        List<citaEntitty> citas = crudCitaRepository.findByCentro_id_centro(id_centro);
         return citaMapper.toDto(citas);
     }
 
     @Override
-    public List<citaDto> buscarPorIdJornada(Integer idInfractor) {
-        List<citaEntitty> citas = crudCitaRepository.findByJornada_id_jornada(idInfractor);
+    public List<citaDto> buscarPorIdJornada(Integer id_jornada) {
+        List<citaEntitty> citas = crudCitaRepository.findByJornada_id_jornada(id_jornada);
         return citaMapper.toDto(citas);
     }
 

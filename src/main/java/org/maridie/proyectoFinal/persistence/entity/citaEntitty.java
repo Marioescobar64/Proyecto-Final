@@ -17,7 +17,7 @@ public class citaEntitty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cita")
-    private Long id_cita;
+    private Integer id_cita;
 
     @Column(name = "fecha_cita", nullable = false)
     private LocalDate fecha_cita;
@@ -38,7 +38,7 @@ public class citaEntitty {
     private CentroEntity  centro;
 
     @ManyToOne
-    @JoinColumn(name = "id_jornada", nullable = false)
+    @JoinColumn(name = "id_jornada", referencedColumnName = "id_jornada")
     private jornadaEntity  jornada;
 
 

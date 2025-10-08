@@ -16,9 +16,9 @@ import java.util.List;
 public interface citaMapper {
 
     // De entidad a DTO
-    @Mapping(source = "donador.id_donador", target = "id_donador")
+    @Mapping(source = "donador.idDonador", target = "id_donador")
     @Mapping(source = "centro.id_centro", target = "id_centro")
-    @Mapping(source = "jornada.id_jornada", target = "id_jornada")
+    @Mapping(source = "jornada.id", target = "id_jornada")
     citaDto toDto(citaEntitty entity);
 
     List<citaDto> toDto(Iterable<citaEntitty> entities);
@@ -29,36 +29,35 @@ public interface citaMapper {
 
     // Métodos auxiliares para MapStruct
     default Integer mapDonadorId(donadorEntity donador) {
-        return donador != null ? donador.getId_donador() != null ? donador.getId_donador().intValue() : null : null;
+        return donador != null ? donador.getIdDonador() : null;
     }
 
-    default donadorEntity mapDonadorEntity(Integer id) {
-        if (id == null) return null;
+    default donadorEntity mapDonadorEntity(Integer idDonador) {
+        if (idDonador == null) return null;
         donadorEntity d = new donadorEntity();
-        d.setId_donador((int) id.longValue()); // <- conversión segura Integer -> Long
+        d.setIdDonador(idDonador);
         return d;
     }
 
     default Integer mapCentroId(CentroEntity centro) {
-        return centro != null ? centro.getId_centro() != null ? centro.getId_centro().intValue() : null : null;
+        return centro != null ? centro.getId_centro() : null;
     }
 
-    default CentroEntity mapCentroEntity(Integer id) {
-        if (id == null) return null;
+    default CentroEntity mapCentroEntity(Integer id_centro) {
+        if (id_centro == null) return null;
         CentroEntity c = new CentroEntity();
-        c.setId_centro((int) id.longValue());
+        c.setId_centro(id_centro);
         return c;
     }
 
     default Integer mapJornadaId(jornadaEntity jornada) {
-        return jornada != null ? jornada.getId_jornada() != null ? jornada.getId_jornada().intValue() : null : null;
+        return jornada != null ? jornada.getId() : null;
     }
 
-    default jornadaEntity mapJornadaEntity(Integer id) {
-        if (id == null) return null;
+    default jornadaEntity mapJornadaEntity(Integer id_jornada) {
+        if (id_jornada == null) return null;
         jornadaEntity j = new jornadaEntity();
-        j.setId_jornada((int) id.longValue());
+        j.setId(id_jornada);
         return j;
     }
 }
-

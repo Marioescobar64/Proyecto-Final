@@ -17,7 +17,4 @@ public class CentroEntity {
     private String direccion;
     private String telefono;
 
-
-
-
 }

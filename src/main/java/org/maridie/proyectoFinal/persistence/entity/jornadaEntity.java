@@ -17,7 +17,7 @@ public class jornadaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_jornada")
-    private Integer id_jornada;
+    private Integer id;
 
     @Column(name = "nombre_jornada", length = 200, nullable = false)
     private String nombre_jornada;
