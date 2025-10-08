@@ -16,7 +16,7 @@ public class citaEntitty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cita")
-    private Long id_cita;
+    private Integer id_cita;
 
     @Column(name = "nombreEvento", length = 100, nullable = false)
     private String nombreEvento;

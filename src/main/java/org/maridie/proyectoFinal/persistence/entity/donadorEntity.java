@@ -18,7 +18,7 @@ public class donadorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_donador")
-    private Integer id_donador;
+    private Integer idDonador;
 
     @Column(name = "nombres", length = 100, nullable = false)
     private String nombres;

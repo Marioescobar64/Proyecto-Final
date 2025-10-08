@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class jornadaDto {
 
     @PositiveOrZero
-    private Integer id_jornada;
+    private Integer idJornada;
 
     @NotBlank(message = "El nombre de la jornada es obligatorio")
     private String nombre_jornada;

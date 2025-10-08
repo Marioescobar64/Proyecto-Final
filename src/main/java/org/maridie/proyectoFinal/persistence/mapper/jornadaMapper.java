@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface jornadaMapper {
-    @Mapping(source = "id_jornada", target = "id_jornada")
+    @Mapping(source = "idJornada", target = "id_jornada")
     @Mapping(source = "nombre_jornada", target = "nombre_jornada")
     @Mapping(source = "fecha_inicio", target = "fecha_inicio")
     @Mapping(source = "fecha_fin", target = "fecha_fin")

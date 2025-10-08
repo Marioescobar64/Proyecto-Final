@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class donadorDto {
     @PositiveOrZero
-    private Integer id_donador;
+    private Integer idDonador;
 
     @NotBlank(message = "El nombre es obligatorio")
     private String nombres;

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface CentroMapper {
-    @Mapping(source = "id_centro", target = "id_centro")
+    @Mapping(source = "idCentro", target = "id_centro")
     @Mapping(source = "nombre", target = "nombre")
     @Mapping(source = "direccion", target = "direccion")
     @Mapping(source = "telefono", target = "telefono")

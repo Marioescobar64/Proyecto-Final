@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CrudCitaRepository extends CrudRepository<citaEntitty,Integer> {
-    List<citaEntitty> findByVDonador_id_donador(Integer id_donador);
-    List<citaEntitty> findByVCentro_id_centro(Integer id_centro);
-    List<citaEntitty> findByJornada_id_jornada(Integer id_jornada);
+    List<citaEntitty> findByDonador_IdDonador(Integer idDonador);
+    List<citaEntitty> findByCentro_IdCentro(Integer idCentro);
+    List<citaEntitty> findByJornada_IdJornada(Integer idJornada);
 }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 
 public class centroDto {
     @PositiveOrZero
-     Integer id_centro;
+     Integer idCentro;
     @NotBlank(message = "El Nombre es Obligatorio")
     String nombre;
     @NotBlank(message = "La direccion es Obligatorio")
