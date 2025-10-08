@@ -17,7 +17,7 @@ public interface citaMapper {
 
     // De entidad a DTO
     @Mapping(source = "donador.idDonador", target = "id_donador")
-    @Mapping(source = "centro.id_centro", target = "id_centro")
+    @Mapping(source = "centro.id", target = "id_centro")
     @Mapping(source = "jornada.id", target = "id_jornada")
     citaDto toDto(citaEntitty entity);
 
@@ -40,16 +40,15 @@ public interface citaMapper {
     }
 
     default Integer mapCentroId(CentroEntity centro) {
-        return centro != null ? centro.getId_centro() : null;
+        return centro != null ? centro.getId() : null;
     }
 
-    default CentroEntity mapCentroEntity(Integer id_centro) {
-        if (id_centro == null) return null;
+    default CentroEntity mapCentroEntity(Integer id) {
+        if (id == null) return null;
         CentroEntity c = new CentroEntity();
-        c.setId_centro(id_centro);
+        c.setId(id);
         return c;
     }
-
     default Integer mapJornadaId(jornadaEntity jornada) {
         return jornada != null ? jornada.getId() : null;
     }

@@ -12,7 +12,7 @@ public class CentroEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_centro")
-    private Integer id_centro;
+    private Integer id;
     private String nombre;
     private String direccion;
     private String telefono;

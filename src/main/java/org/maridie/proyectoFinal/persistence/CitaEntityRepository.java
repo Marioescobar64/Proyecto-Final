@@ -32,19 +32,19 @@ public class CitaEntityRepository implements CitaRepository {
     }
     @Override
     public List<citaDto> buscarPorIdDonador(Integer idDonador) {
-        List<citaEntitty> citas = crudCitaRepository.findByDonador_id_donador(idDonador);
+        List<citaEntitty> citas = crudCitaRepository.findByDonador_IdDonador(idDonador);
         return citaMapper.toDto(citas);
     }
 
     @Override
     public List<citaDto> buscarPorIdCentro(Integer id_centro) {
-        List<citaEntitty> citas = crudCitaRepository.findByCentro_id_centro(id_centro);
+        List<citaEntitty> citas = crudCitaRepository.findByCentro_Id_centro(id_centro);
         return citaMapper.toDto(citas);
     }
 
     @Override
     public List<citaDto> buscarPorIdJornada(Integer id_jornada) {
-        List<citaEntitty> citas = crudCitaRepository.findByJornada_id_jornada(id_jornada);
+        List<citaEntitty> citas = crudCitaRepository.findByJornada_Id(id_jornada);
         return citaMapper.toDto(citas);
     }
 
