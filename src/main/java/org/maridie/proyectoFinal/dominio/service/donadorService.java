@@ -33,4 +33,8 @@ public class donadorService {
     public void eliminar(Integer id) {
         this.donadorRepository.eliminar(id);
     }
+
+    public List<donadorDto> buscarPorIdTipoSangre(Integer idTipoSangre) {
+        return this.donadorRepository.buscarPorIdTipoSangre(idTipoSangre);
+    }
 }
