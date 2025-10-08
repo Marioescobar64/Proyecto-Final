@@ -20,7 +20,7 @@ public interface donadorMapper {
     @Mapping(source = "telefono", target = "telefono")
     @Mapping(source = "email", target = "email")
     @Mapping(source = "direccion", target = "direccion")
-    @Mapping(source = "id_tipo_sangre", target = "id_tipo_sangre")
+    @Mapping(source = "idtiposangre", target = "id_tipo_sangre")
     @Mapping(source = "fecha_ultima_donacion", target = "fecha_ultima_donacion")
     @Mapping(source = "elegible", target = "elegible")
     @Mapping(source = "fecha_creacion", target = "fecha_creacion")

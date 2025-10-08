@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.util.List;
 import lombok.Data;
+import org.maridie.proyectoFinal.dominio.dto.centroDto;
+import org.maridie.proyectoFinal.dominio.dto.donadorDto;
+import org.maridie.proyectoFinal.dominio.dto.jornadaDto;
 
 import java.time.LocalDate;
 
@@ -18,30 +21,27 @@ public class citaEntitty {
     @Column(name = "id_cita")
     private Long id_cita;
 
-    @Column(name = "nombreEvento", length = 100, nullable = false)
-    private String nombreEvento;
-
     @Column(name = "fecha_cita", nullable = false)
     private LocalDate fecha_cita;
-
-    @Column(name = "lugar", length = 100, nullable = false)
-    private String lugar;
 
 
     @Column(name = "hora", nullable = false)
     private LocalTime hora;
 
+    @Column(name = "estado", length = 100, nullable = false)
+    private String estado;
+
     @ManyToOne
-    @JoinColumn(name = "id_donador", nullable = false)
-    private donadorEntity id_donador;
+    @JoinColumn(name = "id_donador")
+    private donadorDto id_donador;
 
     @ManyToOne
     @JoinColumn(name = "id_centro", nullable = false)
-    private CentroEntity id_centro;
+    private centroDto id_centro;
 
     @ManyToOne
     @JoinColumn(name = "id_jornada", nullable = false)
-    private jornadaEntity id_jornada;
+    private jornadaDto id_jornada;
 
 
 }
