@@ -13,7 +13,7 @@ import java.util.List;
 public interface donacionMapper {
     @Mapping(source = "id_donacion", target = "id_donacion")
     @Mapping(source = "id_cita", target = "id_cita")
-    @Mapping(source = "id_enfermo", target = "id_enfermo")
+    @Mapping(source = "id_enfermero", target = "id_enfermo")
     @Mapping(source = "fecha_donacion", target = "fecha_donacion")
     @Mapping(source = "volumen_ml", target = "volumen_ml")
     @Mapping(source = "resultado_serologia", target = "resultado_serologia")
