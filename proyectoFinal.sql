@@ -32,7 +32,7 @@ create table donador (
     id_tipo_sangre int,
     fecha_ultima_donacion date,
     elegible boolean default true,
-    fecha_creacion timestamp default current_timestamp,
+    fecha_creacion date not null,
     constraint pk_donador primary key (id_donador),
     foreign key (id_tipo_sangre) references tipo_sangre(id_tipo_sangre)
 );
@@ -94,7 +94,6 @@ create table donacion (
     foreign key (id_cita) references cita(id_cita),
     foreign key (id_enfermero) references enfermero(id_enfermero)
 );
-
 
 
 

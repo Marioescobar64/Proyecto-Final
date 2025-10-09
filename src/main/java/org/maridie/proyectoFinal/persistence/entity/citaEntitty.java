@@ -1,22 +1,19 @@
 package org.maridie.proyectoFinal.persistence.entity;
 
 import jakarta.persistence.*;
-
-import java.time.LocalTime;
-
 import lombok.Data;
-
-
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "cita")
 @Data
 public class citaEntitty {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cita")
-    private Long id_cita;
+    private Integer id_cita;
 
     @Column(name = "fecha_cita", nullable = false)
     private LocalDate fecha_cita;
@@ -39,5 +36,12 @@ public class citaEntitty {
     @JoinColumn(name = "id_jornada", nullable = false)
     private jornadaEntity jornada;
 
+    // Getter que Spring espera para JPA
+    public Integer getId() {
+        return id_cita;
+    }
 
+    public void setId(Integer id) {
+        this.id_cita = id;
+    }
 }

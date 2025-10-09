@@ -53,7 +53,7 @@ public class EnfermeroRepositoryImpl implements EnfermeroRepository {
         dto.setColegiado(entity.getColegiado());
         dto.setTelefono(entity.getTelefono());
         dto.setEmail(entity.getEmail());
-        dto.setId_centro(entity.getCentro() != null ? entity.getCentro().getId_centro() : null);
+        dto.setId_centro(entity.getCentro() != null ? entity.getCentro().getId() : null);
         return dto;
     }
 
@@ -69,7 +69,7 @@ public class EnfermeroRepositoryImpl implements EnfermeroRepository {
         // Relación ManyToOne con Centro
         if (dto.getId_centro() != null) {
             CentroEntity centro = new CentroEntity();
-            centro.setId_centro(dto.getId_centro());
+            centro.setId(dto.getId_centro());
             entity.setCentro(centro);
         } else {
             entity.setCentro(null);

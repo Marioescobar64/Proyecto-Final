@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -53,5 +52,12 @@ public class DonadorDto {
     @NotNull(message = "Debe especificar si el donador es elegible o no")
     private Boolean elegible;
 
-    private LocalDateTime fecha_creacion;
+    private LocalDate fecha_creacion;
+
+    // Campo calculado para mostrar el mensaje de elegibilidad
+    public String getMensajeElegibilidad() {
+        return Boolean.TRUE.equals(elegible) ?
+                "Es elegible para donar" :
+                "No es donable";
+    }
 }

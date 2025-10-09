@@ -25,19 +25,17 @@ INSERT IGNORE INTO centro (nombre, direccion, telefono) VALUES
 
 
 
-INSERT IGNORE INTO centro (nombre, direccion, telefono) VALUES
-('Centro de Salud Central', 'Av. Reforma 123, Ciudad', '12345678'),
-('Hospital San Juan', 'Calle Principal 45, Ciudad', '23456789'),
-('Clínica Santa María', 'Zona 1, Ciudad', '34567890'),
-('Unidad Médica La Esperanza', 'Colonia Las Flores, Ciudad', '45678901'),
-('Centro de Atención Vital', 'Barrio San José, Ciudad', '56789012');
+INSERT INTO donador
+(nombres, apellidos, dpi, fecha_nacimiento, genero, telefono, email, direccion, id_tipo_sangre, fecha_ultima_donacion, elegible, fecha_creacion)
+VALUES
+('Carlos', 'Ramírez', '1234567890123', '1990-05-12', 'Masculino', '12345678', 'carlos.ramirez@gmail.com', 'Calle 1 #23', 1, '2025-01-15', true, '2025-10-08'),
+('María', 'Gómez', '2345678901234', '1985-08-23', 'Femenino', '87654321', 'maria.gomez@gmail.com', 'Avenida 5 #45', 2, '2025-06-20', true, '2025-10-08'),
+('Luis', 'Fernández', '3456789012345', '1992-11-02', 'Masculino', '11223344', 'luis.fernandez@gmail.com', 'Zona 2 #12', 3, '2025-07-10', true, '2025-10-08'),
+('Ana', 'López', '4567890123456', '1988-03-18', 'Femenino', '22334455', 'ana.lopez@gmail.com', 'Colonia Central #7', 1, '2025-09-01', true, '2025-10-08'),
+('Sofía', 'Martínez', '5678901234567', '1995-12-30', 'Femenino', '33445566', 'sofia.martinez@gmail.com', 'Callejón 9 #11', 2, '2025-08-15', true, '2025-10-08'),
+('Sofía', 'Martínez', '8977755534', '1995-12-30', 'Femenino', '33445566', 'sofia.martinez@gmail.com', 'Callejón 9 #11', 2, '2025-08-15', false, '2025-10-08');
 
-INSERT IGNORE INTO donador (nombres, apellidos, dpi, fecha_nacimiento, genero, telefono, email, direccion, id_tipo_sangre, fecha_ultima_donacion, elegible) VALUES
-('Pedro', 'Alvarado', '1234567890123', '1985-04-12', 'Masculino', '50123456', 'pedro.alvarado@example.com', 'Col. Centro 1', 1, '2025-06-01', true),
-('Lucía', 'Mejía', '2345678901234', '1990-08-23', 'Femenino', '50234567', 'lucia.mejia@example.com', 'Col. Norte 2', 2, '2025-05-15', true),
-('Miguel', 'Hernández', '3456789012345', '1982-01-30', 'Masculino', '50345678', 'miguel.hernandez@example.com', 'Zona 3', 3, '2025-07-10', true),
-('Sofía', 'Cruz', '4567890123456', '1995-11-05', 'Femenino', '50456789', 'sofia.cruz@example.com', 'Barrio San José', 4, '2025-06-20', true),
-('Ricardo', 'Vásquez', '5678901234567', '1988-03-17', 'Masculino', '50567890', 'ricardo.vasquez@example.com', 'Col. Las Flores', 5, '2025-07-01', true);
+
 
 
 

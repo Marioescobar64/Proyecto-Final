@@ -35,8 +35,8 @@ public class CitaEntityRepository implements CitaRepository {
 
     @Override
     public citaDto guardarCita(citaDto citaDto) {
-        if (this.crudCitaRepository.findFirstByestado(citaDto.estado()) != null) {
-            throw new cita(citaDto.estado());
+        if (this.crudCitaRepository.findFirstByestado(citaDto.getEstado()) != null) {
+            throw new cita(citaDto.getEstado());
         }
 
         // Convertimos DTO a Entity

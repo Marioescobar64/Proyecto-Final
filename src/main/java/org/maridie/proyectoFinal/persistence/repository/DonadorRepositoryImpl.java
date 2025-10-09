@@ -68,7 +68,7 @@ public class DonadorRepositoryImpl implements DonadorRepository {
         dto.setId_tipo_sangre(entity.getTipoSangre() != null ? entity.getTipoSangre().getId_tipo_sangre() : null);
         dto.setFecha_ultima_donacion(entity.getFecha_ultima_donacion());
         dto.setElegible(entity.getElegible());
-        dto.setFecha_creacion(entity.getFecha_creacion());
+        dto.setFecha_creacion(entity.getFecha_nacimiento());
         return dto;
     }
 
@@ -96,7 +96,7 @@ public class DonadorRepositoryImpl implements DonadorRepository {
 
         entity.setFecha_ultima_donacion(dto.getFecha_ultima_donacion());
         entity.setElegible(dto.getElegible());
-        entity.setFecha_creacion(dto.getFecha_creacion());
+        entity.setFecha_creacion(dto.getFecha_creacion().atStartOfDay());
         return entity;
     }
 }
