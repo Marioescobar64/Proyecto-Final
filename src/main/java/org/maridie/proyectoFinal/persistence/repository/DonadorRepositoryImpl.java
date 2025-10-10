@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DonadorRepositoryImpl implements DonadorRepository {
 
+
     private final CrudDonadorRepository crudDonadorRepository;
 
     @Override
@@ -52,6 +53,9 @@ public class DonadorRepositoryImpl implements DonadorRepository {
                 .collect(Collectors.toList());
     }
 
+
+
+
     // 🔄 Conversión Entity -> DTO
     private DonadorDto convertirADto(donadorEntity entity) {
         DonadorDto dto = new DonadorDto();
@@ -59,6 +63,7 @@ public class DonadorRepositoryImpl implements DonadorRepository {
         dto.setNombres(entity.getNombres());
         dto.setApellidos(entity.getApellidos());
         dto.setDpi(entity.getDpi());
+        dto.setEdad(entity.getEdad());
         dto.setFecha_nacimiento(entity.getFecha_nacimiento());
         dto.setGenero(entity.getGenero());
         dto.setTelefono(entity.getTelefono());

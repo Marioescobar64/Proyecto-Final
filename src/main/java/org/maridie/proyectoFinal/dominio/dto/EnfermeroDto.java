@@ -34,4 +34,7 @@ public class EnfermeroDto {
     @NotNull(message = "El centro es obligatorio")
     Integer id_centro;
 
+    @NotNull(message = "El centro es obligatorio")
+    Integer idUsuario;
+
 }

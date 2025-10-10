@@ -24,6 +24,7 @@ create table donador (
     nombres varchar(100) not null,
     apellidos varchar(100) not null,
     dpi varchar(13) not null unique,
+    edad int,
     fecha_nacimiento date not null,
     genero varchar(10) not null,
     telefono varchar(8),
@@ -64,8 +65,10 @@ create table enfermero (
     telefono varchar(8),
     email varchar(100),
     id_centro int,
+    idUsuario int,
     constraint pk_enfermero primary key (id_enfermero),
-    foreign key (id_centro) references centro(id_centro)
+    foreign key (id_centro) references centro(id_centro),
+    foreign key (idUsuario) references Usuarios(idUsuario)
 );
 
 create table cita (
@@ -86,7 +89,7 @@ create table donacion (
     id_donacion int auto_increment,
     id_cita int,
     id_enfermero int,
-    fecha_donacion timestamp default current_timestamp,
+    fecha_donacion date not null,
     volumen_ml int not null,
     resultado_serologia varchar(20),
     codigo_unidad varchar(50) unique,
@@ -94,6 +97,3 @@ create table donacion (
     foreign key (id_cita) references cita(id_cita),
     foreign key (id_enfermero) references enfermero(id_enfermero)
 );
-
-
-

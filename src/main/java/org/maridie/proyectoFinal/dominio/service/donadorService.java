@@ -37,4 +37,5 @@ public class donadorService {
     public List<DonadorDto> buscarPorIdTipoSangre(Integer idTipoSangre) {
         return this.donadorRepository.buscarPorIdTipoSangre(idTipoSangre);
     }
+
 }

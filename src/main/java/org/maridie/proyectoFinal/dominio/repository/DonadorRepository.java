@@ -11,4 +11,6 @@ public interface DonadorRepository {
     DonadorDto guardar(DonadorDto donador);
     void eliminar(Integer id);
     List<DonadorDto> buscarPorIdTipoSangre(Integer idTipoSangre);
+
+
 }

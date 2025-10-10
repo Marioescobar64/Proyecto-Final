@@ -41,7 +41,7 @@ public class EnfermeroController {
     public ResponseEntity<EnfermeroDto> actualizarEnfermero(@PathVariable Integer id, @Valid @RequestBody EnfermeroDto enfermeroDto){
         EnfermeroDto enfermeroExistente = enfermeroService.buscarPorId(id);
         if(enfermeroExistente != null){
-            EnfermeroDto enfermeroActualizado = enfermeroService.guardar(new EnfermeroDto(id, enfermeroDto.getNombres(), enfermeroDto.getApellidos(), enfermeroDto.getColegiado(), enfermeroDto.getTelefono(), enfermeroDto.getEmail(), enfermeroDto.getId_centro()));
+            EnfermeroDto enfermeroActualizado = enfermeroService.guardar(new EnfermeroDto(id, enfermeroDto.getNombres(), enfermeroDto.getApellidos(), enfermeroDto.getColegiado(), enfermeroDto.getTelefono(), enfermeroDto.getEmail(), enfermeroDto.getId_centro(),enfermeroDto.getIdUsuario() ));
             return new ResponseEntity<>(enfermeroActualizado, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

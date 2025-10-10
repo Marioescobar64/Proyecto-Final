@@ -52,6 +52,7 @@ public class DonadorController {
                     donadorDto.getNombres(),
                     donadorDto.getApellidos(),
                     donadorDto.getDpi(),
+                    donadorDto.getEdad(),
                     donadorDto.getFecha_nacimiento(),
                     donadorDto.getGenero(),
                     donadorDto.getTelefono(),
@@ -80,4 +81,6 @@ public class DonadorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+
 }

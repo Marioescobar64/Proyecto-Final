@@ -33,7 +33,8 @@ public class donacionService {
         this.donacionRepository.eliminar(id);
     }
 
-    public List<DonacionDto> buscarPorIdCita(Integer idCita) {
-        return donacionRepository.buscarPorIdCita(idCita);
+    public long contarDonacionesPorEnfermero(Integer idEnfermero) {
+        return donacionRepository.contarPorEnfermero(idEnfermero);
     }
+
 }

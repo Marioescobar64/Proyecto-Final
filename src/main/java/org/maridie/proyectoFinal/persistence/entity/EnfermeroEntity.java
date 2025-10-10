@@ -23,6 +23,10 @@ public class EnfermeroEntity {
     @JoinColumn(name = "id_centro")
     private CentroEntity centro;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idUsuario")
+    private UsuarioEntity usuario;
+
 
 
 }

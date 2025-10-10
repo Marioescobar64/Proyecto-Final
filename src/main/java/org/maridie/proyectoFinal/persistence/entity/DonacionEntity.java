@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "donacion")
@@ -25,7 +26,7 @@ public class DonacionEntity {
     private Integer id_enfermero;
 
     @Column(name = "fecha_donacion", nullable = false)
-    private LocalDateTime fecha_donacion;
+    private LocalDate fecha_donacion;
 
     @Column(name = "volumen_ml", nullable = false)
     private Integer volumen_ml;

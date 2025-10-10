@@ -10,5 +10,6 @@ public interface DonacionRepository {
     DonacionDto guardar(DonacionDto donacion);
     void eliminar(Integer id);
 
-    List<DonacionDto> buscarPorIdCita(Integer idCita);
+    // NUEVO: conteo de donaciones por enfermero
+    long contarPorEnfermero(Integer idEnfermero);
 }

@@ -1,11 +1,11 @@
 package org.maridie.proyectoFinal.controller;
 
 import jakarta.validation.Valid;
+import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
+import org.maridie.proyectoFinal.dominio.service.donacionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.maridie.proyectoFinal.dominio.service.donacionService;
-import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
 
 import java.util.List;
 
@@ -18,27 +18,32 @@ public class DonacionController {
         this.donacionService = donacionService;
     }
 
+    // Obtener todas las donaciones
     @GetMapping
-    public ResponseEntity<List<DonacionDto>> obtenerTodos() {
-        return new ResponseEntity<>(donacionService.obtenerTodo(), HttpStatus.OK);
+    public ResponseEntity<List<DonacionDto>> obtenerTodas() {
+        List<DonacionDto> donaciones = donacionService.obtenerTodo();
+        return new ResponseEntity<>(donaciones, HttpStatus.OK);
     }
 
+    // Obtener donación por ID
     @GetMapping("/{id}")
-    public ResponseEntity<DonacionDto> obtenerDonacionPorId(@PathVariable Integer id) {
+    public ResponseEntity<DonacionDto> obtenerPorId(@PathVariable Integer id) {
         DonacionDto donacion = donacionService.buscarPorId(id);
-        return donacion != null
-                ? new ResponseEntity<>(donacion, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return donacion != null ?
+                new ResponseEntity<>(donacion, HttpStatus.OK) :
+                new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // Guardar nueva donación
     @PostMapping
-    public ResponseEntity<DonacionDto> guardarDonacion(@RequestBody @Valid DonacionDto donacionDto) {
+    public ResponseEntity<DonacionDto> guardar(@RequestBody @Valid DonacionDto donacionDto) {
         DonacionDto nuevaDonacion = donacionService.guardar(donacionDto);
         return new ResponseEntity<>(nuevaDonacion, HttpStatus.CREATED);
     }
 
+    // Actualizar donación existente
     @PutMapping("/{id}")
-    public ResponseEntity<DonacionDto> actualizarDonacion(@PathVariable Integer id, @Valid @RequestBody DonacionDto donacionDto) {
+    public ResponseEntity<DonacionDto> actualizar(@PathVariable Integer id, @RequestBody @Valid DonacionDto donacionDto) {
         DonacionDto donacionExistente = donacionService.buscarPorId(id);
         if (donacionExistente != null) {
             DonacionDto donacionActualizada = donacionService.guardar(
@@ -58,23 +63,21 @@ public class DonacionController {
         }
     }
 
+    // Eliminar donación
     @DeleteMapping("/{id}")
-    public ResponseEntity<DonacionDto> eliminarDonacion(@PathVariable Integer id) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
         DonacionDto donacion = donacionService.buscarPorId(id);
         if (donacion != null) {
             donacionService.eliminar(id);
-            return new ResponseEntity<>(donacion, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    @GetMapping("/por-id_cita/{id_cita}")
-    public ResponseEntity<List<DonacionDto>> obtenerDonacionesPorCita(@PathVariable Integer id_cita) {
-        List<DonacionDto> donaciones = donacionService.buscarPorIdCita(id_cita);
-        if (donaciones.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(donaciones, HttpStatus.OK);
+    @GetMapping("/conteo/enfermero/{id}")
+    public ResponseEntity<String> contarDonacionesPorEnfermero(@PathVariable("id") Integer id_enfermero) {
+        long cantidad = donacionService.contarDonacionesPorEnfermero(id_enfermero);
+        return new ResponseEntity<>("El enfermero con ID " + id_enfermero + " tiene " + cantidad + " donaciones.", HttpStatus.OK);
     }
+
 }

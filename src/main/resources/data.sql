@@ -1,74 +1,84 @@
 INSERT IGNORE INTO Usuarios (nombre, apellido, email, password) VALUES
-('Juan', 'Pérez', 'juan.perez@example.com', 'password123'),
-('María', 'González', 'maria.gonzalez@example.com', 'password123'),
-('Carlos', 'Lopez', 'carlos.lopez@example.com', 'password123'),
-('Ana', 'Martínez', 'ana.martinez@example.com', 'password123'),
-('Luis', 'Ramírez', 'luis.ramirez@example.com', 'password123');
+('Mario', 'Díaz', 'mario.diaz@correo.com', '12345'),
+('Lucía', 'García', 'lucia.garcia@correo.com', '12345'),
+('Carlos', 'López', 'carlos.lopez@correo.com', '12345'),
+('Ana', 'Martínez', 'ana.martinez@correo.com', '12345'),
+('Sofía', 'Ramírez', 'sofia.ramirez@correo.com', '12345');
+
 
 
 
 INSERT IGNORE INTO tipo_sangre (grupo_sanguineo, factor_rh) VALUES
 ('A', '+'),
+('A', '-'),
 ('B', '+'),
-('O', '-'),
+('B', '-'),
 ('AB', '+'),
-('O', '+');
+('AB', '-'),
+('O', '+'),
+('O', '-');
 
 
 
 INSERT IGNORE INTO centro (nombre, direccion, telefono) VALUES
-('Centro de Salud Central', 'Av. Reforma 123, Ciudad', '12345678'),
-('Hospital San Juan', 'Calle Principal 45, Ciudad', '23456789'),
-('Clínica Santa María', 'Zona 1, Ciudad', '34567890'),
-('Unidad Médica La Esperanza', 'Colonia Las Flores, Ciudad', '45678901'),
-('Centro de Atención Vital', 'Barrio San José, Ciudad', '56789012');
+('Centro Nacional de Donación', 'Zona 1, Ciudad Capital', '50112233'),
+('Banco de Sangre Regional Norte', 'Zona 5, Cobán', '50223344'),
+('Centro Médico del Sur', 'Zona 4, Escuintla', '50334455'),
+('Hospital General Central', 'Zona 9, Ciudad Capital', '50445566'),
+('Clínica La Esperanza', 'Zona 2, Quetzaltenango', '50556677');
 
 
 
-INSERT INTO donador
-(nombres, apellidos, dpi, fecha_nacimiento, genero, telefono, email, direccion, id_tipo_sangre, fecha_ultima_donacion, elegible, fecha_creacion)
+
+INSERT IGNORE INTO donador
+(nombres, apellidos, dpi, edad, fecha_nacimiento, genero, telefono, email, direccion, id_tipo_sangre, fecha_ultima_donacion, elegible, fecha_creacion)
 VALUES
-('Carlos', 'Ramírez', '1234567890123', '1990-05-12', 'Masculino', '12345678', 'carlos.ramirez@gmail.com', 'Calle 1 #23', 1, '2025-01-15', true, '2025-10-08'),
-('María', 'Gómez', '2345678901234', '1985-08-23', 'Femenino', '87654321', 'maria.gomez@gmail.com', 'Avenida 5 #45', 2, '2025-06-20', true, '2025-10-08'),
-('Luis', 'Fernández', '3456789012345', '1992-11-02', 'Masculino', '11223344', 'luis.fernandez@gmail.com', 'Zona 2 #12', 3, '2025-07-10', true, '2025-10-08'),
-('Ana', 'López', '4567890123456', '1988-03-18', 'Femenino', '22334455', 'ana.lopez@gmail.com', 'Colonia Central #7', 1, '2025-09-01', true, '2025-10-08'),
-('Sofía', 'Martínez', '5678901234567', '1995-12-30', 'Femenino', '33445566', 'sofia.martinez@gmail.com', 'Callejón 9 #11', 2, '2025-08-15', true, '2025-10-08'),
-('Sofía', 'Martínez', '8977755534', '1995-12-30', 'Femenino', '33445566', 'sofia.martinez@gmail.com', 'Callejón 9 #11', 2, '2025-08-15', false, '2025-10-08');
+('Pedro', 'Alvarado', '1234567890101', 39, '1986-04-12', 'Masculino', '50123456', 'pedro.alvarado@example.com', 'Zona 1, Ciudad Capital', 1, '2025-06-01', TRUE, '2025-01-01'),
+('Lucía', 'Mejía', '2345678901234', 34, '1991-08-23', 'Femenino', '50234567', 'lucia.mejia@example.com', 'Zona 2, Ciudad Capital', 2, '2025-05-15', TRUE, '2025-01-02'),
+('Miguel', 'Hernández', '3456789012345', 43, '1982-01-30', 'Masculino', '50345678', 'miguel.hernandez@example.com', 'Zona 3, Cobán', 3, '2025-07-10', TRUE, '2025-01-03'),
+('Sofía', 'Cruz', '4567890123456', 30, '1995-11-05', 'Femenino', '50456789', 'sofia.cruz@example.com', 'Zona 4, Escuintla', 4, '2025-06-20', TRUE, '2025-01-04'),
+('Ricardo', 'Vásquez', '5678901234567', 37, '1988-03-17', 'Masculino', '50567890', 'ricardo.vasquez@example.com', 'Zona 5, Quetzaltenango', 5, '2025-07-01', TRUE, '2025-01-05');
 
 
 
 
 
 INSERT IGNORE INTO jornada (nombre_jornada, fecha_inicio, fecha_fin, id_centro, meta_unidades) VALUES
-('Jornada de Sangre Central', '2025-10-15', '2025-10-15', 1, 50),
-('Jornada Hospital San Juan', '2025-10-20', '2025-10-20', 2, 40),
-('Jornada Clínica Santa María', '2025-11-01', '2025-11-01', 3, 30),
-('Jornada Unidad Médica Esperanza', '2025-11-10', '2025-11-10', 4, 20),
-('Jornada Centro Vital', '2025-11-20', '2025-11-20', 5, 25);
+('Jornada Vida', '2025-06-01', '2025-06-05', 1, 100),
+('Donación Esperanza', '2025-07-10', '2025-07-15', 2, 80),
+('Héroes del Sur', '2025-08-01', '2025-08-03', 3, 60),
+('Salvando Vidas', '2025-09-01', '2025-09-04', 4, 120),
+('Corazón Solidario', '2025-10-01', '2025-10-03', 5, 90);
 
 
 
-INSERT IGNORE INTO enfermero (nombres, apellidos, colegiado, telefono, email, id_centro) VALUES
-('Marcos', 'García', 'C-12345', '51123456', 'marcos.garcia@example.com', 1),
-('Elena', 'Santos', 'C-23456', '51234567', 'elena.santos@example.com', 2),
-('David', 'Ortiz', 'C-34567', '51345678', 'david.ortiz@example.com', 3),
-('Claudia', 'Rivas', 'C-45678', '51456789', 'claudia.rivas@example.com', 4),
-('Fernando', 'Lozano', 'C-56789', '51567890', 'fernando.lozano@example.com', 5);
+
+INSERT IGNORE INTO enfermero
+(nombres, apellidos, colegiado, telefono, email, id_centro, idUsuario) VALUES
+('María', 'González', 'ENF-001', '60112233', 'maria.gonzalez@centro1.com', 1, 1),
+('José', 'Pérez', 'ENF-002', '60223344', 'jose.perez@centro2.com', 2, 2),
+('Ana', 'Morales', 'ENF-003', '60334455', 'ana.morales@centro3.com', 3, 3),
+('Luis', 'Hernández', 'ENF-004', '60445566', 'luis.hernandez@centro4.com', 4, 4),
+('Elena', 'Ramírez', 'ENF-005', '60556677', 'elena.ramirez@centro5.com', 5, 5);
 
 
 
-INSERT IGNORE INTO cita (fecha_cita, hora, estado, id_donador, id_centro, id_jornada) VALUES
-('2025-10-15', '08:00:00', 'Programada', 1, 1, 1),
-('2025-10-20', '09:30:00', 'Programada', 2, 2, 2),
-('2025-11-01', '10:00:00', 'Programada', 3, 3, 3),
-('2025-11-10', '11:15:00', 'Programada', 4, 4, 4),
-('2025-11-20', '14:00:00', 'Programada', 5, 5, 5);
+
+INSERT IGNORE INTO cita
+(fecha_cita, hora, estado, id_donador, id_centro, id_jornada) VALUES
+('2025-06-02', '09:00:00', 'Programada', 1, 1, 1),
+('2025-07-11', '10:00:00', 'Programada', 2, 2, 2),
+('2025-08-02', '08:30:00', 'Programada', 3, 3, 3),
+('2025-09-02', '11:00:00', 'Programada', 4, 4, 4),
+('2025-10-02', '09:45:00', 'Programada', 5, 5, 5);
 
 
-INSERT IGNORE INTO donacion (id_cita, id_enfermero, volumen_ml, resultado_serologia, codigo_unidad) VALUES
-(1, 1, 450, 'Negativo', 'UNI-20251008-001'),
-(2, 2, 500, 'Negativo', 'UNI-20251008-002'),
-(3, 3, 400, 'Negativo', 'UNI-20251008-003'),
-(4, 4, 350, 'Negativo', 'UNI-20251008-004'),
-(5, 5, 420, 'Negativo', 'UNI-20251008-005');
+
+INSERT IGNORE INTO donacion
+(id_cita, id_enfermero, fecha_donacion, volumen_ml, resultado_serologia, codigo_unidad) VALUES
+(1, 1, '2025-06-02', 450, 'Negativo', 'UNID-001'),
+(2, 2, '2025-07-11', 470, 'Negativo', 'UNID-002'),
+(3, 3, '2025-08-02', 460, 'Negativo', 'UNID-003'),
+(4, 4, '2025-09-02', 480, 'Negativo', 'UNID-004'),
+(5, 5, '2025-10-02', 455, 'Negativo', 'UNID-005');
 

@@ -38,25 +38,25 @@ public class CitaController {
 
         @GetMapping("{id}")
         @Operation(
-                summary = "Obtener un evento por su identificador",
-                description = "Retorna el evento que coincida con el identificador dado",
+                summary = "Obtener un cita por su identificador",
+                description = "Retorna el cita que coincida con el identificador dado",
                 responses = {
-                        @ApiResponse(responseCode = "200", description = "Evento encontrado"),
-                        @ApiResponse(responseCode = "404", description = "Evento no encontrado", content = @Content)
+                        @ApiResponse(responseCode = "200", description = "cita encontrado"),
+                        @ApiResponse(responseCode = "404", description = "cita no encontrado", content = @Content)
                 }
         )
         public ResponseEntity<citaDto> buscarPorId(
-                @Parameter(description = "Identificador del evento", example = "1")
+                @Parameter(description = "Identificador del cita", example = "1")
                 @PathVariable Long id) {
             return ResponseEntity.ok(this.citaService.buscarPorId(id));
         }
 
         @PostMapping
         @Operation(
-                summary = "Registrar un nuevo evento",
-                description = "Crea un nuevo evento en el sistema",
+                summary = "Registrar un nuevo cita",
+                description = "Crea un nuevo cita en el sistema",
                 responses = {
-                        @ApiResponse(responseCode = "201", description = "Evento creado exitosamente"),
+                        @ApiResponse(responseCode = "201", description = "cita creado exitosamente"),
                         @ApiResponse(responseCode = "400", description = "Datos inválidos", content = @Content)
                 }
         )
@@ -66,8 +66,8 @@ public class CitaController {
 
         @PutMapping("{id}")
         @Operation(
-                summary = "Modificar un evento existente",
-                description = "Permite actualizar los datos de un evento existente"
+                summary = "Modificar un cita existente",
+                description = "Permite actualizar los datos de un cita existente"
         )
         public ResponseEntity<citaDto> modificarCita(
                 @PathVariable Long id,
@@ -77,8 +77,8 @@ public class CitaController {
 
         @DeleteMapping("{id}")
         @Operation(
-                summary = "Eliminar un evento",
-                description = "Elimina un evento por su identificador"
+                summary = "Eliminar un cita",
+                description = "Elimina un cita por su identificador"
         )
         public ResponseEntity<Void> eliminarCita(@PathVariable Long id) {
             this.citaService.eliminarCita(id);
