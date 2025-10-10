@@ -52,7 +52,6 @@ public class DonadorController {
                     donadorDto.getNombres(),
                     donadorDto.getApellidos(),
                     donadorDto.getDpi(),
-                    donadorDto.getEdad(),
                     donadorDto.getFecha_nacimiento(),
                     donadorDto.getGenero(),
                     donadorDto.getTelefono(),

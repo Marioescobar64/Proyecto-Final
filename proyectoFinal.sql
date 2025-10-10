@@ -24,7 +24,6 @@ create table donador (
     nombres varchar(100) not null,
     apellidos varchar(100) not null,
     dpi varchar(13) not null unique,
-    edad int,
     fecha_nacimiento date not null,
     genero varchar(10) not null,
     telefono varchar(8),

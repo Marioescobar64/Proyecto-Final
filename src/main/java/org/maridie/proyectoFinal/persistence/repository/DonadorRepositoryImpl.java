@@ -63,7 +63,6 @@ public class DonadorRepositoryImpl implements DonadorRepository {
         dto.setNombres(entity.getNombres());
         dto.setApellidos(entity.getApellidos());
         dto.setDpi(entity.getDpi());
-        dto.setEdad(entity.getEdad());
         dto.setFecha_nacimiento(entity.getFecha_nacimiento());
         dto.setGenero(entity.getGenero());
         dto.setTelefono(entity.getTelefono());

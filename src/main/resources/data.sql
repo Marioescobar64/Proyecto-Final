@@ -31,13 +31,13 @@ INSERT IGNORE INTO centro (nombre, direccion, telefono) VALUES
 
 
 INSERT IGNORE INTO donador
-(nombres, apellidos, dpi, edad, fecha_nacimiento, genero, telefono, email, direccion, id_tipo_sangre, fecha_ultima_donacion, elegible, fecha_creacion)
+(nombres, apellidos, dpi, fecha_nacimiento, genero, telefono, email, direccion, id_tipo_sangre, fecha_ultima_donacion, elegible, fecha_creacion)
 VALUES
-('Pedro', 'Alvarado', '1234567890101', 39, '1986-04-12', 'Masculino', '50123456', 'pedro.alvarado@example.com', 'Zona 1, Ciudad Capital', 1, '2025-06-01', TRUE, '2025-01-01'),
-('Lucía', 'Mejía', '2345678901234', 34, '1991-08-23', 'Femenino', '50234567', 'lucia.mejia@example.com', 'Zona 2, Ciudad Capital', 2, '2025-05-15', TRUE, '2025-01-02'),
-('Miguel', 'Hernández', '3456789012345', 43, '1982-01-30', 'Masculino', '50345678', 'miguel.hernandez@example.com', 'Zona 3, Cobán', 3, '2025-07-10', TRUE, '2025-01-03'),
-('Sofía', 'Cruz', '4567890123456', 30, '1995-11-05', 'Femenino', '50456789', 'sofia.cruz@example.com', 'Zona 4, Escuintla', 4, '2025-06-20', TRUE, '2025-01-04'),
-('Ricardo', 'Vásquez', '5678901234567', 37, '1988-03-17', 'Masculino', '50567890', 'ricardo.vasquez@example.com', 'Zona 5, Quetzaltenango', 5, '2025-07-01', TRUE, '2025-01-05');
+('Pedro', 'Alvarado', '1234567890101',  '1986-04-12', 'Masculino', '50123456', 'pedro.alvarado@example.com', 'Zona 1, Ciudad Capital', 1, '2025-06-01', TRUE, '2025-01-01'),
+('Lucía', 'Mejía', '2345678901234', '1991-08-23', 'Femenino', '50234567', 'lucia.mejia@example.com', 'Zona 2, Ciudad Capital', 2, '2025-05-15', TRUE, '2025-01-02'),
+('Miguel', 'Hernández', '3456789012345',  '1982-01-30', 'Masculino', '50345678', 'miguel.hernandez@example.com', 'Zona 3, Cobán', 3, '2025-07-10', TRUE, '2025-01-03'),
+('Sofía', 'Cruz', '4567890123456',  '1995-11-05', 'Femenino', '50456789', 'sofia.cruz@example.com', 'Zona 4, Escuintla', 4, '2025-06-20', TRUE, '2025-01-04'),
+('Ricardo', 'Vásquez', '5678901234567',  '1988-03-17', 'Masculino', '50567890', 'ricardo.vasquez@example.com', 'Zona 5, Quetzaltenango', 5, '2025-07-01', TRUE, '2025-01-05');
 
 
 

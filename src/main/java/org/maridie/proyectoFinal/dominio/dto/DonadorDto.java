@@ -26,9 +26,7 @@ public class DonadorDto {
     @NotBlank(message = "El DPI es obligatorio")
     private String dpi;
 
-    @NotNull(message = "La edad es obligatoria")
-    @PositiveOrZero(message = "La edad no puede ser negativa")
-    private Integer edad;
+
 
     @NotNull(message = "La fecha de nacimiento es obligatoria")
     @DateTimeFormat(pattern = "dd/MM/yyyy")

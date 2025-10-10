@@ -15,7 +15,6 @@ public interface donadorMapper {
     @Mapping(source = "nombres", target = "nombres")
     @Mapping(source = "apellidos", target = "apellidos")
     @Mapping(source = "dpi", target = "dpi")
-    @Mapping(source = "edad", target = "edad")
     @Mapping(source = "fecha_nacimiento", target = "fecha_nacimiento")
     @Mapping(source = "genero", target = "genero")
     @Mapping(source = "telefono", target = "telefono")
