@@ -1,6 +1,6 @@
 package org.maridie.proyectoFinal.persistence.mapper;
 
-import org.maridie.proyectoFinal.dominio.dto.donadorDto;
+import org.maridie.proyectoFinal.dominio.dto.DonadorDto;
 import org.maridie.proyectoFinal.persistence.entity.donadorEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -15,6 +15,7 @@ public interface donadorMapper {
     @Mapping(source = "nombres", target = "nombres")
     @Mapping(source = "apellidos", target = "apellidos")
     @Mapping(source = "dpi", target = "dpi")
+    @Mapping(source = "edad", target = "edad")
     @Mapping(source = "fecha_nacimiento", target = "fecha_nacimiento")
     @Mapping(source = "genero", target = "genero")
     @Mapping(source = "telefono", target = "telefono")
@@ -24,10 +25,10 @@ public interface donadorMapper {
     @Mapping(source = "fecha_ultima_donacion", target = "fecha_ultima_donacion")
     @Mapping(source = "elegible", target = "elegible")
     @Mapping(source = "fecha_creacion", target = "fecha_creacion")
-    donadorDto toDto(donadorEntity entity);
+    DonadorDto toDto(donadorEntity entity);
 
-    List<donadorDto> toDto(Iterable<donadorEntity> entities);
+    List<DonadorDto> toDto(Iterable<donadorEntity> entities);
 
     @InheritInverseConfiguration
-    donadorEntity toEntity(donadorDto dto);
+    donadorEntity toEntity(DonadorDto dto);
 }

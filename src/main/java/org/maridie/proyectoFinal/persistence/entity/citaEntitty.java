@@ -1,19 +1,15 @@
 package org.maridie.proyectoFinal.persistence.entity;
 
 import jakarta.persistence.*;
-
-import java.math.BigDecimal;
-import java.time.LocalTime;
-import java.util.List;
 import lombok.Data;
-
-
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "cita")
 @Data
 public class citaEntitty {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cita")
@@ -22,7 +18,6 @@ public class citaEntitty {
     @Column(name = "fecha_cita", nullable = false)
     private LocalDate fecha_cita;
 
-
     @Column(name = "hora", nullable = false)
     private LocalTime hora;
 
@@ -30,16 +25,23 @@ public class citaEntitty {
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "id_donador")
-    private donadorEntity  donador;
+    @JoinColumn(name = "id_donador", nullable = false)
+    private donadorEntity donador;
 
     @ManyToOne
     @JoinColumn(name = "id_centro", nullable = false)
-    private CentroEntity  centro;
+    private CentroEntity centro;
 
     @ManyToOne
-    @JoinColumn(name = "id_jornada", referencedColumnName = "id_jornada")
-    private jornadaEntity  jornada;
+    @JoinColumn(name = "id_jornada", nullable = false)
+    private jornadaEntity jornada;
 
+    // Getter que Spring espera para JPA
+    public Integer getId() {
+        return id_cita;
+    }
 
+    public void setId(Integer id) {
+        this.id_cita = id;
+    }
 }

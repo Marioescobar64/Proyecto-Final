@@ -1,8 +1,8 @@
 package org.maridie.proyectoFinal.dominio.service;
 
 import lombok.Data;
-import org.maridie.proyectoFinal.dominio.dto.donadorDto;
-import org.maridie.proyectoFinal.repository.donadorRepository;
+import org.maridie.proyectoFinal.dominio.dto.DonadorDto;
+import org.maridie.proyectoFinal.dominio.repository.DonadorRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,21 +11,21 @@ import java.util.List;
 @Service
 @Data
 public class donadorService {
-    private final donadorRepository donadorRepository;
+    private final DonadorRepository donadorRepository;
 
-    public donadorService(donadorRepository donadorRepository) {
+    public donadorService(DonadorRepository donadorRepository) {
         this.donadorRepository = donadorRepository;
     }
 
-    public List<donadorDto> obtenerTodo() {
+    public List<DonadorDto> obtenerTodo() {
         return this.donadorRepository.obtenerTodo();
     }
 
-    public donadorDto buscarPorId(Integer id) {
+    public DonadorDto buscarPorId(Integer id) {
         return this.donadorRepository.buscarPorId(id);
     }
 
-    public donadorDto guardar(donadorDto donadorDto) {
+    public DonadorDto guardar(DonadorDto donadorDto) {
         return this.donadorRepository.guardar(donadorDto);
     }
 
@@ -34,7 +34,8 @@ public class donadorService {
         this.donadorRepository.eliminar(id);
     }
 
-    public List<donadorDto> buscarPorIdTipoSangre(Integer idTipoSangre) {
+    public List<DonadorDto> buscarPorIdTipoSangre(Integer idTipoSangre) {
         return this.donadorRepository.buscarPorIdTipoSangre(idTipoSangre);
     }
+
 }

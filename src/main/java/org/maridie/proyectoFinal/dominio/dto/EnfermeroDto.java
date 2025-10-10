@@ -6,16 +6,12 @@ import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class enfermeroDto {
+public class EnfermeroDto {
 
     @PositiveOrZero
     Integer id_enfermero;
@@ -37,5 +33,8 @@ public class enfermeroDto {
 
     @NotNull(message = "El centro es obligatorio")
     Integer id_centro;
+
+    @NotNull(message = "El centro es obligatorio")
+    Integer idUsuario;
 
 }

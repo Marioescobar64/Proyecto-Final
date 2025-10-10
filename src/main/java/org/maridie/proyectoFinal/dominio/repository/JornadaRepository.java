@@ -1,14 +1,14 @@
 package org.maridie.proyectoFinal.dominio.repository;
 
 
-import org.maridie.proyectoFinal.dominio.dto.jornadaDto;
+import org.maridie.proyectoFinal.dominio.dto.JornadaDto;
 
 import java.util.List;
 
 public interface JornadaRepository {
 
-    List<jornadaDto> obtenerTodo();
-    jornadaDto buscarPorId(Integer id);
-    jornadaDto guardar(jornadaDto jornada);
+    List<JornadaDto> obtenerTodo();
+    JornadaDto buscarPorId(Integer id);
+    JornadaDto guardar(JornadaDto jornada);
     void eliminar(Integer id);
 }

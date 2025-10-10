@@ -29,6 +29,9 @@ public class donadorEntity {
     @Column(name = "dpi", length = 13, nullable = false, unique = true)
     private String dpi;
 
+    @Column(name = "edad", length = 13, nullable = false, unique = true)
+    private Integer edad;
+
     @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate fecha_nacimiento;
 
@@ -46,7 +49,7 @@ public class donadorEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_tipo_sangre", referencedColumnName = "id_tipo_sangre")
-    private tipoDeSangreEntity tipoSangre;
+    private TipoDeSangreEntity tipoSangre;
 
     @Column(name = "fecha_ultima_donacion")
     private LocalDate fecha_ultima_donacion;

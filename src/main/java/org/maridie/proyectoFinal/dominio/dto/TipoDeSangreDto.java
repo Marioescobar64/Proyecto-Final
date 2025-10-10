@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class tipoDeSangreDto {
+public class TipoDeSangreDto {
     @PositiveOrZero
     Integer id_tipo_sangre;
     @NotBlank(message = "El grupo sanguineo es obligatorio")

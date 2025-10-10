@@ -1,11 +1,11 @@
 package org.maridie.proyectoFinal.controller;
 
 import jakarta.validation.Valid;
+import org.maridie.proyectoFinal.dominio.dto.TipoDeSangreDto;
+import org.maridie.proyectoFinal.dominio.service.tipoDeSangreService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.maridie.proyectoFinal.dominio.dto.tipoDeSangreDto;
-import org.maridie.proyectoFinal.dominio.service.tipoDeSangreService;
 
 import java.util.List;
 
@@ -18,31 +18,36 @@ public class tipoDeSangreController {
         this.tipoDeSangreService = tipoDeSangreService;
     }
 
+    // 🔹 Obtener todos los tipos de sangre
     @GetMapping
-    public ResponseEntity<List<tipoDeSangreDto>> obtenerTodos() {
+    public ResponseEntity<List<TipoDeSangreDto>> obtenerTodos() {
         return new ResponseEntity<>(tipoDeSangreService.obtenerTodo(), HttpStatus.OK);
     }
 
+    // 🔹 Obtener tipo de sangre por ID
     @GetMapping("/{id}")
-    public ResponseEntity<tipoDeSangreDto> obtenerTipoDeSangrePorId(@PathVariable Integer id) {
-        tipoDeSangreDto tipoDeSangre = tipoDeSangreService.buscarPorId(id);
-        return tipoDeSangre != null ?
-                new ResponseEntity<>(tipoDeSangre, HttpStatus.OK) :
-                new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<TipoDeSangreDto> obtenerPorId(@PathVariable Integer id) {
+        TipoDeSangreDto tipo = tipoDeSangreService.buscarPorId(id);
+        return tipo != null
+                ? new ResponseEntity<>(tipo, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // 🔹 Crear nuevo tipo de sangre
     @PostMapping
-    public ResponseEntity<tipoDeSangreDto> guardarTipoDeSangre(@RequestBody @Valid tipoDeSangreDto tipoDeSangreDto) {
-        tipoDeSangreDto nuevoTipo = tipoDeSangreService.guardar(tipoDeSangreDto);
+    public ResponseEntity<TipoDeSangreDto> guardar(@RequestBody @Valid TipoDeSangreDto tipoDto) {
+        TipoDeSangreDto nuevoTipo = tipoDeSangreService.guardar(tipoDto);
         return new ResponseEntity<>(nuevoTipo, HttpStatus.CREATED);
     }
 
+    // 🔹 Actualizar tipo de sangre existente
     @PutMapping("/{id}")
-    public ResponseEntity<tipoDeSangreDto> actualizarTipoDeSangre(@PathVariable Integer id, @Valid @RequestBody tipoDeSangreDto tipoDeSangreDto) {
-        tipoDeSangreDto existente = tipoDeSangreService.buscarPorId(id);
+    public ResponseEntity<TipoDeSangreDto> actualizar(@PathVariable Integer id,
+                                                      @Valid @RequestBody TipoDeSangreDto tipoDto) {
+        TipoDeSangreDto existente = tipoDeSangreService.buscarPorId(id);
         if (existente != null) {
-            tipoDeSangreDto actualizado = tipoDeSangreService.guardar(
-                    new tipoDeSangreDto(id, tipoDeSangreDto.getGrupo_sanguineo(), tipoDeSangreDto.getFactor_rh())
+            TipoDeSangreDto actualizado = tipoDeSangreService.guardar(
+                    new TipoDeSangreDto(id, tipoDto.getGrupo_sanguineo(), tipoDto.getFactor_rh())
             );
             return new ResponseEntity<>(actualizado, HttpStatus.OK);
         } else {
@@ -50,12 +55,13 @@ public class tipoDeSangreController {
         }
     }
 
+    // 🔹 Eliminar tipo de sangre
     @DeleteMapping("/{id}")
-    public ResponseEntity<tipoDeSangreDto> eliminarTipoDeSangre(@PathVariable Integer id) {
-        tipoDeSangreDto tipoDeSangre = tipoDeSangreService.buscarPorId(id);
-        if (tipoDeSangre != null) {
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+        TipoDeSangreDto tipo = tipoDeSangreService.buscarPorId(id);
+        if (tipo != null) {
             tipoDeSangreService.eliminar(id);
-            return new ResponseEntity<>(tipoDeSangre, HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class donacionDto {
+public class DonacionDto {
 
     @PositiveOrZero
     private Integer id_donacion;

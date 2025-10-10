@@ -1,6 +1,6 @@
 package org.maridie.proyectoFinal.persistence.mapper;
 
-import org.maridie.proyectoFinal.dominio.dto.jornadaDto;
+import org.maridie.proyectoFinal.dominio.dto.JornadaDto;
 import org.maridie.proyectoFinal.persistence.entity.jornadaEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -19,11 +19,11 @@ public interface jornadaMapper {
     @Mapping(source = "fecha_fin", target = "fecha_fin")
     @Mapping(source = "id_centro", target = "id_centro")
     @Mapping(source = "meta_unidades", target = "meta_unidades")
-    jornadaDto toDto(jornadaEntity entity);
+    JornadaDto toDto(jornadaEntity entity);
 
-    List<jornadaDto> toDto(Iterable<jornadaEntity> entities);
+    List<JornadaDto> toDto(Iterable<jornadaEntity> entities);
 
     // De DTO a entidad
     @InheritInverseConfiguration
-    jornadaEntity toEntity(jornadaDto dto);
+    jornadaEntity toEntity(JornadaDto dto);
 }

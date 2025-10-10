@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class donadorDto {
+public class DonadorDto {
     @PositiveOrZero
     private Integer id_donador;
 
@@ -26,6 +25,10 @@ public class donadorDto {
 
     @NotBlank(message = "El DPI es obligatorio")
     private String dpi;
+
+    @NotNull(message = "La edad es obligatoria")
+    @PositiveOrZero(message = "La edad no puede ser negativa")
+    private Integer edad;
 
     @NotNull(message = "La fecha de nacimiento es obligatoria")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -46,12 +49,19 @@ public class donadorDto {
     @PositiveOrZero
     private Integer id_tipo_sangre;
 
-    @NotNull(message = "La fecha de la última donación es obligatoria")
+
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate fecha_ultima_donacion;
 
     @NotNull(message = "Debe especificar si el donador es elegible o no")
     private Boolean elegible;
 
-    private LocalDateTime fecha_creacion;
+    private LocalDate fecha_creacion;
+
+    // Campo calculado para mostrar el mensaje de elegibilidad
+    public String getMensajeElegibilidad() {
+        return Boolean.TRUE.equals(elegible) ?
+                "Es elegible para donar" :
+                "No es donable";
+    }
 }

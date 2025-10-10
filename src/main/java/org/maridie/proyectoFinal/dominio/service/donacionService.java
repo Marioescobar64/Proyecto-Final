@@ -1,7 +1,7 @@
 package org.maridie.proyectoFinal.dominio.service;
 import lombok.Data;
-import org.maridie.proyectoFinal.dominio.dto.donacionDto;
-import org.maridie.proyectoFinal.repository.donacionRepository;
+import org.maridie.proyectoFinal.dominio.dto.DonacionDto;
+import org.maridie.proyectoFinal.dominio.repository.DonacionRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,21 +10,21 @@ import java.util.List;
 @Service
 @Data
 public class donacionService {
-    private final donacionRepository donacionRepository;
+    private final DonacionRepository donacionRepository;
 
-    public donacionService(donacionRepository donacionRepository) {
+    public donacionService(DonacionRepository donacionRepository) {
         this.donacionRepository = donacionRepository;
     }
 
-    public List<donacionDto> obtenerTodo() {
+    public List<DonacionDto> obtenerTodo() {
         return this.donacionRepository.obtenerTodo();
     }
 
-    public donacionDto buscarPorId(Integer id) {
+    public DonacionDto buscarPorId(Integer id) {
         return this.donacionRepository.buscarPorId(id);
     }
 
-    public donacionDto guardar(donacionDto donacionDto) {
+    public DonacionDto guardar(DonacionDto donacionDto) {
         return this.donacionRepository.guardar(donacionDto);
     }
 
@@ -33,7 +33,8 @@ public class donacionService {
         this.donacionRepository.eliminar(id);
     }
 
-    public List<donacionDto> buscarPorIdCita(Integer idCita) {
-        return donacionRepository.buscarPorIdCita(idCita);
+    public long contarDonacionesPorEnfermero(Integer idEnfermero) {
+        return donacionRepository.contarPorEnfermero(idEnfermero);
     }
+
 }

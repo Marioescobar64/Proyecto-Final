@@ -1,7 +1,7 @@
 package org.maridie.proyectoFinal.persistence.mapper;
 
-import org.maridie.proyectoFinal.dominio.dto.tipoDeSangreDto;
-import org.maridie.proyectoFinal.persistence.entity.tipoDeSangreEntity;
+import org.maridie.proyectoFinal.dominio.dto.TipoDeSangreDto;
+import org.maridie.proyectoFinal.persistence.entity.TipoDeSangreEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,10 +14,10 @@ public interface tipoDeSangreMapper {
     @Mapping(source = "id_tipo_sangre", target = "id_tipo_sangre")
     @Mapping(source = "grupo_sanguineo", target = "grupo_sanguineo")
     @Mapping(source = "factor_rh", target = "factor_rh")
-    tipoDeSangreDto toDto(tipoDeSangreEntity entity);
+    TipoDeSangreDto toDto(TipoDeSangreEntity entity);
 
-    List<tipoDeSangreDto> toDto(Iterable<tipoDeSangreEntity> entities);
+    List<TipoDeSangreDto> toDto(Iterable<TipoDeSangreEntity> entities);
 
     @InheritInverseConfiguration
-    tipoDeSangreEntity toEntity(tipoDeSangreDto dto);
+    TipoDeSangreEntity toEntity(TipoDeSangreDto dto);
 }
